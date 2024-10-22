@@ -2,26 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* Swiper container */
+.swiper-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding-bottom: 8px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Each slide */
+.swiper-slide {
+  flex: 0 0 80%; /* Each slide takes 80% of the viewport */
+  scroll-snap-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Optional: Hover effect */
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+/* Hide scrollbar */
+.swiper-container::-webkit-scrollbar {
+  display: none;
 }
