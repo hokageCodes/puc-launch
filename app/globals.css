@@ -8,30 +8,47 @@
   box-sizing: border-box;
 }
 
+/* Root body styles */
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
 
-/* Swiper container */
-.swiper-container {
+/* Custom CSS properties for animation */
+@property --a {
+  initial-value: 0deg;
+  inherits: false;
+  syntax: "<angle>";
+}
+
+@property --h {
+  initial-value: 0;
+  inherits: false;
+  syntax: "<number>";
+}
+/* Fullscreen Loader Container */
+.loader-container {
+  min-height: 100vh;
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
-  padding-bottom: 8px;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Allow positioning of children */
+  overflow: hidden; /* Prevent overflow during animation */
 }
 
-/* Each slide */
-.swiper-slide {
-  flex: 0 0 80%; /* Each slide takes 80% of the viewport */
-  scroll-snap-align: center;
-  position: relative;
-  transition: transform 0.3s ease;
+/* Loader Styling */
+.loader {
+  padding: 2rem 5rem;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 5rem;
+  color: #01553d;
+  z-index: 10; /* Ensure text is above the background */
+  border: 5px solid #01553d;
 }
 
-/* Optional: Hover effect */
-.swiper-slide:hover {
-  transform: scale(1.05);
-}
-
-/* Hide scrollbar */
-.swiper-container::-webkit-scrollbar {
-  display: none;
+/* Fade in effect for the body background */
+body {
+  transition: background-color 1s ease-in-out; /* Smooth background transition */
 }
